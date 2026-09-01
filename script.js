@@ -2,11 +2,15 @@ const ROME_TIMEZONE = "Europe/Rome";
 const INSTAGRAM_POPUP_DELAY = 1500;
 
 const OPENING_SCHEDULE = [
-  { day: 2, label: "Martedì", open: "17:00", close: "23:00" },
-  { day: 3, label: "Mercoledì", open: "17:00", close: "23:00" },
-  { day: 4, label: "Giovedì", open: "17:00", close: "23:00" },
-  { day: 5, label: "Venerdì", open: "17:00", close: "23:00" },
-  { day: 6, label: "Sabato", open: "17:00", close: "23:00" }
+  { day: 2, label: "Martedì", open: "12:00", close: "16:00" },
+  { day: 3, label: "Mercoledì", open: "12:00", close: "16:00" },
+  { day: 4, label: "Giovedì", open: "12:00", close: "16:00" },
+  { day: 4, label: "Giovedì", open: "18:00", close: "23:00" },
+  { day: 5, label: "Venerdì", open: "12:00", close: "16:00" },
+  { day: 5, label: "Venerdì", open: "18:00", close: "23:00" },
+  { day: 6, label: "Sabato", open: "12:00", close: "16:00" },
+  { day: 6, label: "Sabato", open: "18:00", close: "23:00" },
+  { day: 0, label: "Domenica", open: "18:00", close: "23:00" }
 ];
 
 const WEEKDAY_MAP = {
@@ -47,18 +51,21 @@ function getRomeTime(date = new Date()) {
   };
 }
 
+function getDaySlots(day) {
+  return OPENING_SCHEDULE
+    .filter((entry) => entry.day === day)
+    .sort((a, b) => toMinutes(a.open) - toMinutes(b.open));
+}
+
 function getNextOpening(currentDay, currentMinutes) {
   for (let offset = 0; offset < 8; offset += 1) {
     const day = (currentDay + offset) % 7;
-    const slot = OPENING_SCHEDULE.find((entry) => entry.day === day);
+    const slots = getDaySlots(day);
 
-    if (!slot) {
-      continue;
-    }
-
-    const openMinutes = toMinutes(slot.open);
-    if (offset > 0 || currentMinutes < openMinutes) {
-      return { ...slot, offset };
+    for (const slot of slots) {
+      if (offset > 0 || currentMinutes < toMinutes(slot.open)) {
+        return { ...slot, offset };
+      }
     }
   }
 
@@ -67,25 +74,23 @@ function getNextOpening(currentDay, currentMinutes) {
 
 function buildStatus() {
   const { day, minutes } = getRomeTime();
-  const today = OPENING_SCHEDULE.find((entry) => entry.day === day);
   const time = formatClock(minutes);
+  const current = getDaySlots(day).find(
+    (slot) => minutes >= toMinutes(slot.open) && minutes < toMinutes(slot.close)
+  );
 
-  if (today) {
-    const open = toMinutes(today.open);
-    const close = toMinutes(today.close);
-
-    if (minutes >= open && minutes < close) {
-      return {
-        open: true,
-        label: "Aperto ora",
-        detail: `Oggi fino alle ${today.close}.`,
-        time
-      };
-    }
+  if (current) {
+    return {
+      open: true,
+      label: "Aperto ora",
+      detail: `Oggi fino alle ${current.close}.`,
+      time
+    };
   }
 
   const next = getNextOpening(day, minutes);
-  const nextText = next ? `${next.offset === 0 ? "oggi" : next.label} alle ${next.open}` : "al prossimo turno";
+  const nextLabel = next && next.offset === 0 ? "oggi" : next && next.offset === 1 ? "domani" : next ? next.label : "";
+  const nextText = next ? `${nextLabel} alle ${next.open}` : "al prossimo turno";
 
   return {
     open: false,

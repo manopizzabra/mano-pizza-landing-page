@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
   <link rel="manifest" href="manifest.json" />
   <link rel="preload" as="image" href="assets/mano-storefront.webp" />
-  <link rel="stylesheet" href="styles.css?v=20260603-2310" />
+  <link rel="stylesheet" href="styles.css?v=20260901-1200" />
 
   <script type="application/ld+json">
   {
@@ -54,7 +54,13 @@
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "17:00",
+        "opens": "12:00",
+        "closes": "16:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "18:00",
         "closes": "23:00"
       }
     ]
@@ -174,38 +180,87 @@
         </div>
 
         <div class="menu-layout">
-          <div class="menu-board reveal" aria-label="Menu Pizza Criminale">
+          <div class="menu-board reveal" aria-label="Menu pizze Mano Pizza">
             <div class="menu-board__top">
-          <span>MANO / BRA</span>
-          <span>17:00-23:00</span>
+              <span>MANO / BRA</span>
+              <span>PRANZO &amp; CENA</span>
             </div>
             <article class="menu-item">
               <div>
-                <h3>Trancio Legale</h3>
-                <p>Il trancio diretto, senza complicazioni.</p>
+                <h3>Marinara</h3>
+                <p>Pomodoro, aglio confit, origano</p>
               </div>
-              <strong>3 euro</strong>
+              <strong>6,00 &euro;</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Margherita NYC style</h3>
+                <p>Pomodoro, mozzarella</p>
+              </div>
+              <strong>7,00 &euro;</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Bufala</h3>
+                <p>Pomodoro, bufala, basilico</p>
+              </div>
+              <strong>8,00 &euro;</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Quattro e pepe</h3>
+                <p>Mozzarella, gorgonzola, parmigiano, pecorino, pepe nero e rosa</p>
+              </div>
+              <strong>10,00 &euro;</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Mare nero</h3>
+                <p>Pomodoro con nero di seppia, acciughe del Cantabrico, aglio confit</p>
+              </div>
+              <strong>9,00 &euro;</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Patate</h3>
+                <p>Crema di patate dolci, patate al forno, cipolle caramellate, rosmarino</p>
+              </div>
+              <strong>8,00 &euro;</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Broccoli</h3>
+                <p>Pomodoro, mozzarella, broccoli, aglio fritto a lamelle</p>
+              </div>
+              <strong>7,00 &euro;</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Porchetta</h3>
+                <p>Salsa di mela, mozzarella, porchetta, chutney di prugne</p>
+              </div>
+              <strong>10,00 &euro;</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Pizza dell&rsquo;orto</h3>
+                <p>Pomodoro, mozzarella, verdure di stagione</p>
+              </div>
+              <strong>8,00 &euro;</strong>
+            </article>
+            <article class="menu-item">
+              <div>
+                <h3>Quasi capricciosa</h3>
+                <p>Pomodoro, mozzarella, cotto, oyster mushrooms, olive taggiasche</p>
+              </div>
+              <strong>10,00 &euro;</strong>
             </article>
             <article class="menu-item menu-item--hot">
               <div>
-                <h3>Trancio Criminale</h3>
-                <p>La scelta più libera del banco.</p>
+                <h3>Diavola / Diablo</h3>
+                <p>Pomodoro, mozzarella, salamino piccante, olio al pepe di Sichuan, cipollotti</p>
               </div>
-              <strong>4 euro</strong>
-            </article>
-            <article class="menu-item">
-              <div>
-                <h3>Menu Studenti</h3>
-                <p>2 tranci legali + drink.</p>
-              </div>
-              <strong>6 euro</strong>
-            </article>
-            <article class="menu-item">
-              <div>
-                <h3>Menu</h3>
-                <p>2 tranci a scelta + drink.</p>
-              </div>
-              <strong>8,50 euro</strong>
+              <strong>9,00 &euro;</strong>
             </article>
           </div>
 
@@ -246,7 +301,7 @@
       <div class="container hours__grid">
         <div class="section-heading reveal">
           <p class="eyebrow">Orari</p>
-          <h2 id="hours-title">Aperto la sera, dal martedì al sabato.</h2>
+          <h2 id="hours-title">A pranzo dal martedì, a cena dal giovedì.</h2>
           <div class="hero-status hours-status" data-status-card aria-live="polite">
             <span class="hero-status__pulse" aria-hidden="true"></span>
             <span class="hero-status__copy">
@@ -258,13 +313,13 @@
           </div>
         </div>
         <div class="hours-table reveal" aria-label="Orari di apertura">
-          <div><span>Lunedì</span><strong>Chiuso</strong></div>
-          <div><span>Martedì</span><strong>17:00-23:00</strong></div>
-          <div><span>Mercoledì</span><strong>17:00-23:00</strong></div>
-          <div><span>Giovedì</span><strong>17:00-23:00</strong></div>
-          <div><span>Venerdì</span><strong>17:00-23:00</strong></div>
-          <div><span>Sabato</span><strong>17:00-23:00</strong></div>
-          <div><span>Domenica</span><strong>Chiuso</strong></div>
+          <div><span>Lunedì</span><strong class="is-closed-day">Chiuso</strong></div>
+          <div><span>Martedì</span><strong>12:00-16:00</strong></div>
+          <div><span>Mercoledì</span><strong>12:00-16:00</strong></div>
+          <div><span>Giovedì</span><strong>12:00-16:00<br />18:00-23:00</strong></div>
+          <div><span>Venerdì</span><strong>12:00-16:00<br />18:00-23:00</strong></div>
+          <div><span>Sabato</span><strong>12:00-16:00<br />18:00-23:00</strong></div>
+          <div><span>Domenica</span><strong>18:00-23:00</strong></div>
         </div>
       </div>
     </section>
@@ -308,8 +363,9 @@
       <div class="footer__column">
         <h2>Locale</h2>
         <p>P.za XX Settembre 9, 12042 Bra CN</p>
-        <p>Martedì - Sabato<br />17:00 - 23:00</p>
-        <p>Domenica e lunedì chiuso</p>
+        <p>Martedì - Sabato<br />12:00 - 16:00</p>
+        <p>Giovedì - Domenica<br />18:00 - 23:00</p>
+        <p>Lunedì chiuso</p>
       </div>
       <div class="footer__legal-column">
         <h2>Dati legali</h2>
@@ -326,6 +382,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260603-2250"></script>
+  <script src="script.js?v=20260901-1200"></script>
 </body>
 </html>
