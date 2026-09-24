@@ -182,6 +182,7 @@
     "title": "PIZZA DEL GIORNO?"
   },
   "removedBlocks": {
+    "menu_item11": true,
     "menu_item12": false,
     "menu_item13": true,
     "menu_item14": true,
