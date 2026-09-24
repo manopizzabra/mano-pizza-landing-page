@@ -1,0 +1,40 @@
+{
+  "components": [
+    {
+      "definition": "components/manifesto/manifesto-original/component.json",
+      "id": "manifesto-original",
+      "version": "1.0.0"
+    },
+    {
+      "definition": "components/manifesto/about-image-text/component.json",
+      "id": "about-image-text",
+      "version": "1.0.0"
+    },
+    {
+      "definition": "components/gallery/gallery-original/component.json",
+      "id": "gallery-original",
+      "version": "1.0.0"
+    },
+    {
+      "definition": "components/gallery/gallery-mosaic/component.json",
+      "id": "gallery-mosaic",
+      "version": "1.0.0"
+    },
+    {
+      "definition": "components/banner/original/component.json",
+      "id": "banner-original",
+      "version": "1.0.0"
+    },
+    {
+      "definition": "components/banner/centered/component.json",
+      "id": "banner-centered",
+      "version": "1.0.0"
+    },
+    {
+      "definition": "components/banner/split/component.json",
+      "id": "banner-split",
+      "version": "1.0.0"
+    }
+  ],
+  "formatVersion": 1
+}

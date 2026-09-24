@@ -1,0 +1,58 @@
+{
+  "formatVersion": 1,
+  "order": [
+    "hero",
+    "menu",
+    "gallery",
+    "manifesto",
+    "hours",
+    "location"
+  ],
+  "sections": {
+    "banner": {
+      "allowed": [
+        "banner-original",
+        "banner-centered",
+        "banner-split"
+      ],
+      "optionsByComponent": {
+        "banner-centered": {
+          "ctaLabel": "Scopri il menu",
+          "ctaUrl": "#menu",
+          "eyebrow": ""
+        },
+        "banner-original": {
+          "speedSeconds": 30
+        },
+        "banner-split": {
+          "badge": "Novità",
+          "ctaLabel": "Chiamaci",
+          "ctaUrl": "tel:+393881856684"
+        }
+      },
+      "selected": "banner-centered"
+    },
+    "gallery": {
+      "allowed": [
+        "gallery-original",
+        "gallery-mosaic"
+      ],
+      "optionsByComponent": {
+        "gallery-mosaic": {},
+        "gallery-original": {}
+      },
+      "selected": "gallery-original"
+    },
+    "manifesto": {
+      "allowed": [
+        "manifesto-original",
+        "about-image-text"
+      ],
+      "optionsByComponent": {
+        "about-image-text": {},
+        "manifesto-original": {}
+      },
+      "selected": "manifesto-original"
+    }
+  }
+}
